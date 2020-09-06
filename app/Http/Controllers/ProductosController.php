@@ -11,9 +11,20 @@ class ProductosController extends Controller
         $productos = DB::table('productos')
                    ->orderBy('id', 'desc')
                    ->get();
-
+        
+        /*echo('<pre>');
+        var_dump($productos);
+        die();*/
+        
         return view('producto.index', [
             'productos' => $productos
+        ]);
+    }
+    
+    public function detail($id){
+        $producto = DB::table('productos')->where('id', '=', $id)->first();
+        return view('producto.detail', [
+            'producto' => $producto
         ]);
     }
 
@@ -30,5 +41,10 @@ class ProductosController extends Controller
             'fecha' => date('Y-m-d')
         ));
         return redirect()->action('ProductosController@index')->with('status', 'Producto creado correctamente');
+    }
+
+    public function delete($id){
+        $producto = DB::table('productos')->where('id', $id)->delete();
+        return redirect()->action('ProductosController@index')->with('status', 'Producto borrado correctamente');
     }
 }

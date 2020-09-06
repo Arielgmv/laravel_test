@@ -8,7 +8,7 @@
 <ul>
     @foreach ($productos as $producto)
         <li>
-            {{$producto->nombre}}
+            <a href="{{action('ProductosController@detail', ['id'=>$producto->id])}}">{{$producto->nombre}}</a>
         </li>
     @endforeach
 </ul>

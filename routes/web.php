@@ -21,6 +21,8 @@ Route::get('/', function () {
 //Rutas de producto
 Route::group(['prefix' => 'productos'], function () {
     Route::get('index', 'ProductosController@index');
+    Route::get('detail/{id}', 'ProductosController@detail');
     Route::get('crear', 'ProductosController@create');
     Route::post('save', 'ProductosController@save');
+    Route::get('delete/{id}', 'ProductosController@delete');
 });
