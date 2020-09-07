@@ -3,3 +3,4 @@
     {{$producto->descripcion}}
 </p>
 <a href="{{action('ProductosController@delete', ['id'=>$producto->id])}}">Eliminar</a>
+<a href="{{action('ProductosController@edit', ['id'=>$producto->id])}}">Editar</a>

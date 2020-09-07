@@ -25,4 +25,6 @@ Route::group(['prefix' => 'productos'], function () {
     Route::get('crear', 'ProductosController@create');
     Route::post('save', 'ProductosController@save');
     Route::get('delete/{id}', 'ProductosController@delete');
+    Route::get('editar/{id}', 'ProductosController@edit');
+    Route::post('update', 'ProductosController@update');
 });
